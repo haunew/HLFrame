@@ -1,7 +1,6 @@
 
 
-# HLFrame <br/><div style="width: 70px;height: 30px;background-color: red"></div>
-
+# HLFrame 
 Frame布局方法扩展
 ### 基本布局
 ```objective-c
