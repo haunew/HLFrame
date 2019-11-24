@@ -98,7 +98,6 @@
                                             Right:@0
                                             }
                                     }];
-    NSLog(@"%@",[NSValue valueWithCGRect:anchorFunctionView.frame]);
     
 }
 

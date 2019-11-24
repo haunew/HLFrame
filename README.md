@@ -2,7 +2,7 @@
 Frame布局方法扩展
 
 ### 基本布局
-```oc
+```objective-c
     UIView *baseFunctionView = [[UIView alloc] init];
     baseFunctionView.backgroundColor = [UIColor redColor];
     [self.view addSubview:baseFunctionView];
@@ -23,7 +23,7 @@ Frame布局方法扩展
 
 `Top`:对应Frame的y，正数下移，负数上移
 
-```oc
+```objective-c
     UILabel *baseFunctionView_lable = [[UILabel alloc] init];
     baseFunctionView_lable.backgroundColor = [UIColor yellowColor];
     [baseFunctionView addSubview:baseFunctionView_lable];
@@ -47,7 +47,8 @@ Frame布局方法扩展
 3. 使用Top和Bottom，Bottom会失效
 
 ###偏移
-```
+
+```objective-c
     UIView *offsetFunctionView = [[UIView alloc] init];
     offsetFunctionView.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:offsetFunctionView];
@@ -97,7 +98,7 @@ Frame布局方法扩展
 
 注意：
 1. Frame的优先级大于Offset，即字典中的Frame设置了Left、Right、Top、Bottom，Offset中的对应属性会失效
-2. `makeFrame`方法不能添加多个Offset，添加多个Offset使用`equal:offset:`方法，Example:
+2. `makeFrame:`方法不能添加多个Offset，添加多个Offset使用`equal:offset:`方法，Example:
 
 ```oc
     UIButton *offsetFunctionView_button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -114,4 +115,24 @@ Frame布局方法扩展
                                                                      Height:@-30,
                                                                      Left:@0
                                                                      }];
+```
+
+###锚点
+```
+    UIView *anchorFunctionView = [[UIView alloc] init];
+    anchorFunctionView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:anchorFunctionView];
+    
+    [anchorFunctionView makeFrame:@{
+                                    Bottom:@0,
+                                    Offset:@[offsetFunctionView,@{
+                                                 Height:@0,
+                                                 Width:@0,
+                                                 Right:@0
+                                                 }],
+                                    Anchor:@{
+                                            Bottom:@0,
+                                            Right:@0
+                                            }
+                                    }];
 ```
