@@ -46,6 +46,7 @@ Frame布局方法扩展
 2. 使用Left和Right，Right会失效
 3. 使用Top和Bottom，Bottom会失效
 
+             
 ###偏移
 
 ```objective-c
@@ -80,7 +81,7 @@ Frame布局方法扩展
 2. 使用Top和Bottom，Bottom会失效
 3. 确定基视图在同一控制器下，有Frame
 
-```oc
+```objective-c
     UIImageView *offsetFunctionView_img = [[UIImageView alloc] init];
     [offsetFunctionView addSubview:offsetFunctionView_img];
     offsetFunctionView_img.backgroundColor = [UIColor redColor];
@@ -100,7 +101,7 @@ Frame布局方法扩展
 1. Frame的优先级大于Offset，即字典中的Frame设置了Left、Right、Top、Bottom，Offset中的对应属性会失效
 2. `makeFrame:`方法不能添加多个Offset，添加多个Offset使用`equal:offset:`方法，Example:
 
-```oc
+```objective-c
     UIButton *offsetFunctionView_button = [UIButton buttonWithType:UIButtonTypeSystem];
     offsetFunctionView_button.backgroundColor = [UIColor greenColor];
     [offsetFunctionView addSubview:offsetFunctionView_button];
@@ -116,13 +117,15 @@ Frame布局方法扩展
                                                                      Left:@0
                                                                      }];
 ```
-
+      
+         
 ###锚点
-```
+   
+
+```objective-c
     UIView *anchorFunctionView = [[UIView alloc] init];
     anchorFunctionView.backgroundColor = [UIColor redColor];
     [self.view addSubview:anchorFunctionView];
-    
     [anchorFunctionView makeFrame:@{
                                     Bottom:@0,
                                     Offset:@[offsetFunctionView,@{

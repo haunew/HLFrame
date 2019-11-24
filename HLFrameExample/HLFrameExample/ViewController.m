@@ -85,7 +85,6 @@
     UIView *anchorFunctionView = [[UIView alloc] init];
     anchorFunctionView.backgroundColor = [UIColor redColor];
     [self.view addSubview:anchorFunctionView];
-    
     [anchorFunctionView makeFrame:@{
                                     Bottom:@0,
                                     Offset:@[offsetFunctionView,@{
