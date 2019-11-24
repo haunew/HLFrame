@@ -1,4 +1,5 @@
 # HLFrame
+
 Frame布局方法扩展
 
 ### 基本布局
@@ -148,6 +149,9 @@ Frame布局方法扩展
 1. 同时使用Left和Right，Right会失效
 2. 同时使用Top和Bottom，Bottom会失效
 3. 只对当前`makeFrame:`方法有效
+
+### Example图片
+![](https://github.com/haunew/HLFrame/blob/master/img/HLFrame_Example.png?raw=true)
 
 ## 说明
 * 通过字典来设置相关Frame，类比css设置样式
