@@ -208,11 +208,12 @@
 -(NSArray *)formatStyle:(NSDictionary *)frame{
     NSMutableArray *styles = [NSMutableArray arrayWithArray:frame.allKeys];
     NSMutableArray *values = [NSMutableArray arrayWithArray:frame.allValues];
-    [self formatWidthHeight:styles values:values];
     [self formatContradiction:styles values:values];
     if([styles containsObject:Offset]){
         [self analysisOffset:styles values:values];
     }
+    [self formatWidthHeight:styles values:values];
+    
     if([styles containsObject:Anchor]){
         NSUInteger aIndex = [styles indexOfObject:Anchor];
         if([UIView verifyNSDictionary:[values objectAtIndex:aIndex]]){
@@ -255,6 +256,7 @@
     id oValue = [values objectAtIndex:oIndex];
     if([UIView verifyOffset:Offset offsetValue:oValue]){
         NSDictionary *offset = [NSArray arrayWithArray:oValue].lastObject;
+        UIView *fixView = [NSArray arrayWithArray:oValue].firstObject;
         NSMutableArray *oStyles = [NSMutableArray arrayWithArray:offset.allKeys];
         NSMutableArray *oValues = [NSMutableArray arrayWithArray:offset.allValues];
         [self formatContradiction:oStyles values:oValues];
@@ -263,6 +265,43 @@
         [self removeContradictionOffset:styles offsetStyles:oStyles offsetValues:oValues frameStyle:@[Height]];
         [self removeContradictionOffset:styles offsetStyles:oStyles offsetValues:oValues frameStyle:@[Right,Left]];
         [self removeContradictionOffset:styles offsetStyles:oStyles offsetValues:oValues frameStyle:@[Bottom,Top]];
+        
+        if([oStyles containsObject:Width] && [UIView verifyView:fixView]){
+            NSUInteger owIndex = [oStyles indexOfObject:Width];
+            id owValue = [oValues objectAtIndex:owIndex];
+            if([UIView verifyNumber:owValue]){
+                CGFloat fW = fixView.bounds.size.width + [owValue floatValue];
+                [oValues replaceObjectAtIndex:owIndex withObject:[NSNumber numberWithFloat:fW]];
+                [styles addObject:Width];
+                [values addObject:[NSNumber numberWithFloat:fW]];
+            }
+        }else if ([styles containsObject:Width]){
+            NSUInteger fwIndex = [styles indexOfObject:Width];
+            id fwValue = [values objectAtIndex:fwIndex];
+            if([UIView verifyNumber:fwValue]){
+                [oStyles addObject:Width];
+                [oValues addObject:fwValue];
+            }
+        }
+        
+        if([oStyles containsObject:Height] && [UIView verifyView:fixView]){
+            NSUInteger ohIndex = [oStyles indexOfObject:Height];
+            id ohValue = [oValues objectAtIndex:ohIndex];
+            if([UIView verifyNumber:ohValue]){
+                CGFloat fH = fixView.bounds.size.height + [ohValue floatValue];
+                [oValues replaceObjectAtIndex:ohIndex withObject:[NSNumber numberWithFloat:fH]];
+                [styles addObject:Height];
+                [values addObject:[NSNumber numberWithFloat:fH]];
+            }
+        }else if ([styles containsObject:Height]){
+            NSUInteger fhIndex = [styles indexOfObject:Height];
+            id fhValue = [values objectAtIndex:fhIndex];
+            if([UIView verifyNumber:fhValue]){
+                [oStyles addObject:Height];
+                [oValues addObject:fhValue];
+            }
+        }
+        
         if([styles containsObject:Anchor]){
             NSUInteger aIndex = [styles indexOfObject:Anchor];
             if([UIView verifyNSDictionary:[values objectAtIndex:aIndex]]){
@@ -272,6 +311,9 @@
             }
         }
         
+        [self removeContradictionOffset:styles offsetStyles:oStyles offsetValues:oValues frameStyle:@[Width]];
+        [self removeContradictionOffset:styles offsetStyles:oStyles offsetValues:oValues frameStyle:@[Height]];
+        
         NSMutableDictionary *oDictionary = [NSMutableDictionary dictionary];
         for (NSInteger i = 0; i < oStyles.count; ++i) {
             NSString *oStype = [oStyles objectAtIndex:i];
@@ -279,7 +321,7 @@
             [oDictionary setValue:oValue forKey:oStype];
         }
         
-        [values replaceObjectAtIndex:oIndex withObject:@[[NSArray arrayWithArray:oValue].firstObject,[NSDictionary dictionaryWithDictionary:oDictionary]]];
+        [values replaceObjectAtIndex:oIndex withObject:@[fixView,[NSDictionary dictionaryWithDictionary:oDictionary]]];
     }
 }
 
