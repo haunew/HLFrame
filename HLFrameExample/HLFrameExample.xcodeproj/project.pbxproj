@@ -15,6 +15,7 @@
 		C54DFDCC238AABE8002B92AA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DFDCB238AABE8002B92AA /* main.m */; };
 		C54DFDD6238AABE8002B92AA /* HLFrameExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DFDD5238AABE8002B92AA /* HLFrameExampleTests.m */; };
 		C54DFDE1238AABE8002B92AA /* HLFrameExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DFDE0238AABE8002B92AA /* HLFrameExampleUITests.m */; };
+		C54DFDF5238AAED3002B92AA /* UIView+HLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C54DFDF4238AAED3002B92AA /* UIView+HLFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,10 @@
 		C54DFDDC238AABE8002B92AA /* HLFrameExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HLFrameExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C54DFDE0238AABE8002B92AA /* HLFrameExampleUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HLFrameExampleUITests.m; sourceTree = "<group>"; };
 		C54DFDE2238AABE8002B92AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C54DFDF1238AAED3002B92AA /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		C54DFDF2238AAED3002B92AA /* HLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLFrame.h; sourceTree = "<group>"; };
+		C54DFDF3238AAED3002B92AA /* UIView+HLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HLFrame.h"; sourceTree = "<group>"; };
+		C54DFDF4238AAED3002B92AA /* UIView+HLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HLFrame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,7 @@
 		C54DFDBB238AABE7002B92AA /* HLFrameExample */ = {
 			isa = PBXGroup;
 			children = (
+				C54DFDF0238AAED3002B92AA /* HLFrame */,
 				C54DFDBC238AABE7002B92AA /* AppDelegate.h */,
 				C54DFDBD238AABE7002B92AA /* AppDelegate.m */,
 				C54DFDBF238AABE7002B92AA /* ViewController.h */,
@@ -130,6 +136,17 @@
 				C54DFDE2238AABE8002B92AA /* Info.plist */,
 			);
 			path = HLFrameExampleUITests;
+			sourceTree = "<group>";
+		};
+		C54DFDF0238AAED3002B92AA /* HLFrame */ = {
+			isa = PBXGroup;
+			children = (
+				C54DFDF1238AAED3002B92AA /* Constant.h */,
+				C54DFDF2238AAED3002B92AA /* HLFrame.h */,
+				C54DFDF3238AAED3002B92AA /* UIView+HLFrame.h */,
+				C54DFDF4238AAED3002B92AA /* UIView+HLFrame.m */,
+			);
+			path = HLFrame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +281,7 @@
 			files = (
 				C54DFDC1238AABE7002B92AA /* ViewController.m in Sources */,
 				C54DFDCC238AABE8002B92AA /* main.m in Sources */,
+				C54DFDF5238AAED3002B92AA /* UIView+HLFrame.m in Sources */,
 				C54DFDBE238AABE7002B92AA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
