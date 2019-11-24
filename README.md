@@ -139,3 +139,20 @@ Frame布局方法扩展
                                             }
                                     }];
 ```
+`Anchor`:添加锚点
+`Top`:设置bounds的顶部为锚点，锚点下移为正，上移为负
+`Bottom`:设置bounds的底部为锚点，锚点下移为正，上移为负
+`Left`:设锚点在bounds的左边，锚点右移为正，左移为负
+`Right`:设锚点在bounds的右边，锚点右移为正，左移为负
+
+注意：
+1. 使用Left和Right，Right会失效
+2. 使用Top和Bottom，Bottom会失效
+3. 只对当前`makeFrame:`方法有效
+
+##说明
+* 通过字典来设置相关Frame，类比css布局
+* 只能实现Frame相关的布局，是基于iOS-Frame布局的扩展
+* 与约束混合使用需要Layout一下后使用或者在主线程刷新Frame
+* Left、Right、Top、Bottom属性仅仅只是修改`CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)`中对应的值
+
