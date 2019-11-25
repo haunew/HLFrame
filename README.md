@@ -1,7 +1,7 @@
 
 # HLFrame 
 ![](https://img.shields.io/badge/platform-ios-lightgrey.svg)
-![](https://img.shields.io/badge/language-oc-orange.svg)
+![](https://img.shields.io/badge/language-OC-orange.svg)
 [![](https://img.shields.io/badge/email-haunew@yeah.net-blue.svg)](https://twitter.com/EyreFree777)
 
 Frame布局方法扩展
