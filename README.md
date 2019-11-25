@@ -48,8 +48,8 @@ Frame布局方法扩展
 注意：
 
 1. 使用Right和Bottom时要确定该视图添加到了界面
-2. 使用Left和Right，Right会失效
-3. 使用Top和Bottom，Bottom会失效 
+2. 同时使用Left和Right，Right会失效
+3. 同时使用Top和Bottom，Bottom会失效 
 
 
 ### 偏移
