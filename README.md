@@ -155,8 +155,9 @@ Frame布局方法扩展
 3. 只对当前`makeFrame:`方法有效
 
 ### Example图片
-![](https://github.com/haunew/HLFrame/blob/master/img/HLFrame_Example.png?raw=true)
-
+<p align="center" style="background-color: #e1e1e1">
+  <img src="https://github.com/haunew/HLFrame/blob/master/img/HLFrame_Example.png?raw=true" alt="HLFrame" title="HLFrame">
+</p>
 ## 说明
 * 通过字典来设置相关Frame，类比css设置样式
 * 只能实现Frame相关的布局，是基于iOS-Frame布局的扩展
